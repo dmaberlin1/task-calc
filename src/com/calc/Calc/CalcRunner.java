@@ -9,7 +9,7 @@ public class CalcRunner {
         try {
             //обьект для чтения вводы пользователя с консоли
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("Введите арифметическое выражение (например, 1 + 2):");
+            System.out.println("Введите арифметическое выражение в диапазоне от 1 до 10 (например, 1 + 2):");
 //            BufferedReader предоставляет методы, такие как readLine(),
 //                    которые позволяют читать строки текста целиком,
             String input = reader.readLine();
@@ -42,6 +42,11 @@ public class CalcRunner {
             // Вычисляем результат в зависимости от оператора, используя выражение switch expressions",
             // в современном варианте
             // такая возможность появилась  с 12  версии
+
+            if (operand1 < 1 || operand1 > 10 || operand2 < 1 || operand2 > 10) {
+                throw new IllegalArgumentException("Числа должны быть от 1 до 10");
+            }
+
             int result = switch (operator) {
                 case "+" -> operand1 + operand2;
                 case "-" -> operand1 - operand2;
